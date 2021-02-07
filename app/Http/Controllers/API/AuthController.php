@@ -5,24 +5,15 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Article;
-use App\Models\Apex_player;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Log;
-use GuzzleHttp\Client;
 use DB;
 use Mail;
-
-use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
-use Illuminate\Support\Facades\Password;
 
 
 class AuthController extends Controller
 {
-    use SendsPasswordResetEmails;
-
     public function login(Request $request){
 
         $validator = Validator::make($request->all(), [
