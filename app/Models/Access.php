@@ -5,17 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+class Access extends Model
 {
     use HasFactory;
 
-    protected $table = 'article';
+    protected $table = 'access';
 
     protected $fillable = [
         'url',
-        'path',
-        'type',
-        'content',
-        'date',
+        'count',
     ];
 }

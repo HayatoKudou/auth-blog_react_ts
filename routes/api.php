@@ -19,6 +19,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('topData', 'App\Http\Controllers\API\TopController@topData');
-Route::post('login', 'App\Http\Controllers\Api\AuthController@login');
-Route::post('register', 'App\Http\Controllers\Api\AuthController@register');
-Route::post('contact', 'App\Http\Controllers\Api\AuthController@contact');
+Route::post('getAdminData', 'App\Http\Controllers\API\TopController@getAdminData');
+Route::post('post', 'App\Http\Controllers\API\TopController@post');
+Route::post('article_search', 'App\Http\Controllers\API\TopController@article_search');
+
+Route::post('login', 'App\Http\Controllers\API\AuthController@login');
+Route::post('register', 'App\Http\Controllers\API\AuthController@register');
+Route::post('contact', 'App\Http\Controllers\API\AuthController@contact');
+
+Route::get('exmple', 'App\Http\Controllers\API\ToolsController@get_api_endPoint');
+Route::post('exmple', 'App\Http\Controllers\API\ToolsController@post_api_endPoint');

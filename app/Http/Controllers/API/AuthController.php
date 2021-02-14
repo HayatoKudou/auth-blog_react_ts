@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,7 +9,6 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use DB;
-use Mail;
 
 
 class AuthController extends Controller
@@ -30,8 +29,6 @@ class AuthController extends Controller
         $password = $request->password;
         $user = User::where("email",$email)->first();
         if ($user && Hash::check($password, $user->password)) {
-            $token = Str::random(60);
-            $user->api_token = $token;
             $user->save();
             return [
                 "user" => $user,
@@ -66,6 +63,7 @@ class AuthController extends Controller
                 'name' => $name,
                 'email' => $email,
                 'password' => Hash::make($password),
+                'api_token' => Str::random(60),
             ]);
             $user_model->save();
 
